@@ -1,3 +1,4 @@
+
 <?php
 	include('variables.php');
 
@@ -8,7 +9,6 @@
 	}
 
 	$username = $_POST['username'];
-	echo $username;
 
 	$buscar_user = "SELECT * FROM $tbl_name WHERE $row_tbl_name_user = '$username'";	 
 	$result_user = $conexion->query($buscar_user);	

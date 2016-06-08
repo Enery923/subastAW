@@ -3,21 +3,25 @@
 	$host_db = "localhost";
 	$user_db = "root";
 	$pass_db = "root";
-	$db_name = "usuarios_prueba";
-	$tbl_name = "users";
-	$tbl_items = "items";
-	$row_tbl_name_user = "nombre";
-	$row_tbl_name_pwd = "password";
-	$row_tbl_name_permisos = "permisos";
-	$tbl_perfil = "perfiles";
+	$db_name = "subastaDB";
+	$tbl_name = "Usuarios";
+	$tbl_items = "Productos";
+	$tbl_lotes = "Lotes";
+	$row_tbl_name_user = "Nombre";
+	$row_tbl_name_pwd = "Password";
+	$row_tbl_name_permisos = "idTipoUsuarios";
+	$tbl_perfil = "TiposUsuarios";
 
-	//DB pruebas 2
 	// $host_db = "localhost";
 	// $user_db = "root";
 	// $pass_db = "root";
-	// $db_name = "prueba";
-	// $tbl_name = "usuarios";
+	// $db_name = "usuarios_prueba";
+	// $tbl_name = "users";
+	// $tbl_items = "Productos";
+	// $tbl_lotes = "Lotes";
 	// $row_tbl_name_user = "nombre";
 	// $row_tbl_name_pwd = "password";
-	// $row_tbl_name_perfil = "perfiles";
+	// $row_tbl_name_permisos = "idTipoUsuario";
+	// $tbl_perfil = "TiposUsuarios";
+
 ?>
