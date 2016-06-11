@@ -70,7 +70,7 @@ DROP TABLE IF EXISTS Usuarios;
 CREATE TABLE IF NOT EXISTS Usuarios(
   idUsuarios INT NOT NULL,
   Nombre VARCHAR(45) NOT NULL,
-  Contrasenia VARCHAR(45) NOT NULL,
+  Password VARCHAR(60) NOT NULL,
   idTipoUsuarios INT NOT NULL,
   PRIMARY KEY (idUsuarios),
   UNIQUE INDEX Nombre_UNIQUE (Nombre ASC),
