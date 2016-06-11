@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS TiposUsuarios (
   UNIQUE INDEX codigoUsuarios_UNIQUE (codigoTipoUsuarios),
   UNIQUE INDEX descripcionUsuarios_UNIQUE (descripcionTipoUsuarios));
 
-
 -- -----------------------------------------------------
 -- Table Estados
 -- -----------------------------------------------------
@@ -73,15 +72,26 @@ CREATE TABLE IF NOT EXISTS Usuarios(
   Nombre VARCHAR(45) NOT NULL,
   Contrasenia VARCHAR(45) NOT NULL,
   idTipoUsuarios INT NOT NULL,
-  idSubasta INT NOT NULL,
   PRIMARY KEY (idUsuarios),
   UNIQUE INDEX Nombre_UNIQUE (Nombre ASC),
   INDEX idTipoUsuarios_idx (idTipoUsuarios ASC),
   INDEX idSubasta_idx (idSubasta ASC),
   CONSTRAINT idTipoUsuarios FOREIGN KEY (idTipoUsuarios) REFERENCES TiposUsuarios (idTipoUsuarios) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT idSubasta FOREIGN KEY (idSubasta) REFERENCES Subasta (idSubasta) ON DELETE NO ACTION ON UPDATE NO ACTION);
+  );
 
+-- -----------------------------------------------------
+-- Table Relación entre el usuario y sus subastas
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS Usuario_Subasta;
 
+CREATE TABLE IF NOT EXISTS Usuario_SUbasta ( 
+  idUsuarios INT NOT NULL,
+  idSUbasta INT NOT NULL,
+  INDEX idUsuario_idx (idUsuarios ASC),
+  INDEX idSubasta_idx (idSubasta ASC),
+  CONSTRAINT idUsuario_SUbasta1 FOREIGN KEY (idUsuarios) REFERENCES Usuarios (idUsuarios) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT idUsuario_Subasta2 FOREIGN KEY (idSubasta) REFERENCES Subasta (idSubasta) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
 
 -- -----------------------------------------------------
 -- Table Productos
