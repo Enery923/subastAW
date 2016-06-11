@@ -110,8 +110,17 @@ CREATE TABLE IF NOT EXISTS Log(
   idLog INT NOT NULL,
   Fecha DATETIME NOT NULL,
   Descripcion VARCHAR(145) NOT NULL,
-  idVinculo INT NOT NULL COMMENT 'Es la Foreign key que lo relaciona con idUsuario o idProducto',
-  PRIMARY KEY (idLog));
+  idUsuario INT NOT NULL COMMENT 'segun el idTipoUsuario se definiría como subastador o postor' NOT NULL,
+  idSubasta INT,
+  idProducto INT,
+  PRIMARY KEY (idLog)
+  INDEX idSubasta_idx (idSubasta ASC),
+  INDEX idUsuario_idx (idUsuario ASC),
+  INDEX idProducto_idx (idProducto ASC),
+  CONSTRAINT idSubasta_Log FOREIGN KEY (idSubasta) REFERENCES Subasta (idSubasta),
+  CONSTRAINT idUsuario_Log FOREIGN KEY (idUsuario) REFERENCES Usuarios (idUsuarios),
+  CONSTRAINT idProducto_Log FOREIGN KEY (idProducto) REFERENCES Productos (idProducto)
+  );
 
 
 
