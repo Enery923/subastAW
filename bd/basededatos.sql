@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS TiposUsuarios (
   nombreTipoUsuarios VARCHAR(10) NOT NULL,
   descripcionTipoUsuarios VARCHAR(45) NOT NULL,
   PRIMARY KEY (idTipoUsuarios),
-  UNIQUE INDEX codigoUsuarios_UNIQUE (codigoTipoUsuarios),
+  UNIQUE INDEX codigoUsuarios_UNIQUE (nombreTipoUsuarios),
   UNIQUE INDEX descripcionUsuarios_UNIQUE (descripcionTipoUsuarios));
 
 -- -----------------------------------------------------
