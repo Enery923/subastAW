@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS Usuarios(
   idTipoUsuarios INT NOT NULL,
   PRIMARY KEY (idUsuarios),
   UNIQUE INDEX Nombre_UNIQUE (Nombre ASC),
-  INDEX idTipoUsuarios_idx (idTipoUsuarios ASC),
+  INDEX idTipoUsuarios_idx (idTipoUsuarios ASC)
   );
 
 -- -----------------------------------------------------
