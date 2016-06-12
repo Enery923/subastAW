@@ -2,6 +2,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+use subastaDB;
 -- -----------------------------------------------------
 -- Table TiposUsuarios
 -- -----------------------------------------------------
@@ -11,7 +12,7 @@ CREATE TABLE IF NOT EXISTS TiposUsuarios (
   idTipoUsuarios INT NOT NULL,
   codigoTipoUsuarios INT NOT NULL,
   descripcionTipoUsuarios VARCHAR(45) NOT NULL,
-  PRIMARY KEY ('idTipoUsuarios'),
+  PRIMARY KEY (idTipoUsuarios),
   UNIQUE INDEX codigoUsuarios_UNIQUE (codigoTipoUsuarios),
   UNIQUE INDEX descripcionUsuarios_UNIQUE (descripcionTipoUsuarios));
 
@@ -75,8 +76,7 @@ CREATE TABLE IF NOT EXISTS Usuarios(
   PRIMARY KEY (idUsuarios),
   UNIQUE INDEX Nombre_UNIQUE (Nombre ASC),
   INDEX idTipoUsuarios_idx (idTipoUsuarios ASC),
-  INDEX idSubasta_idx (idSubasta ASC),
-  CONSTRAINT idTipoUsuarios FOREIGN KEY (idTipoUsuarios) REFERENCES TiposUsuarios (idTipoUsuarios) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT idTipoUsuarios FOREIGN KEY (idTipoUsuarios) REFERENCES TiposUsuarios (idTipoUsuarios) ON DELETE NO ACTION ON UPDATE NO ACTION
   );
 
 -- -----------------------------------------------------
@@ -123,13 +123,13 @@ CREATE TABLE IF NOT EXISTS Log(
   idUsuario INT NOT NULL COMMENT 'segun el idTipoUsuario se definiría como subastador o postor' NOT NULL,
   idSubasta INT,
   idProducto INT,
-  PRIMARY KEY (idLog)
+  PRIMARY KEY (idLog),
   INDEX idSubasta_idx (idSubasta ASC),
   INDEX idUsuario_idx (idUsuario ASC),
   INDEX idProducto_idx (idProducto ASC),
   CONSTRAINT idSubasta_Log FOREIGN KEY (idSubasta) REFERENCES Subasta (idSubasta),
   CONSTRAINT idUsuario_Log FOREIGN KEY (idUsuario) REFERENCES Usuarios (idUsuarios),
-  CONSTRAINT idProducto_Log FOREIGN KEY (idProducto) REFERENCES Productos (idProducto)
+  CONSTRAINT idProducto_Log FOREIGN KEY (idProducto) REFERENCES Productos (idProductos)
   );
 
 
@@ -140,11 +140,11 @@ CREATE TABLE IF NOT EXISTS Log(
 DROP TABLE IF EXISTS Pujas;
 
 CREATE TABLE IF NOT EXISTS Pujas (
-  idPujas INT NOT NULL,
+  idPujas INT NOT NULL AUTO_INCREMENT,
   Cantidad FLOAT NOT NULL,
   idUsuario INT NOT NULL,
   idSubasta INT NOT NULL,
-  fecha DATETIME NULL,
+  fecha DATETIME(3) DEFAULT CURRENT_TIMESTAMP(3),
   PRIMARY KEY (idPujas),
   INDEX idUsuario_idx (idUsuario ASC),
   INDEX idSubasta_idx (idSubasta ASC),
