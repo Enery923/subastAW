@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS Subasta (
   fecha_fin DATETIME NOT NULL,
   fecha_roundRobin DATETIME NULL,
   precio DOUBLE NOT NULL,
+  precioActual DOUBLE NULL,
   idEstado INT NOT NULL,
   idTipoSubasta INT NOT NULL,
   PRIMARY KEY (idSubasta),
