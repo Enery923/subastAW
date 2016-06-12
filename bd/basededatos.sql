@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS Productos (
   concepto VARCHAR(20) NOT NULL,
   descripcion VARCHAR(100) NULL DEFAULT 'Sin Información concreta.',
   imagen VARCHAR(60) NULL,
-  fecha DATETIME NULL DEFAULT GETDATE(),
+  fecha DATETIME NULL DEFAULT CURRENT_TIMESTAMP(),
   idEstado INT NULL,
   PRIMARY KEY (idProductos),
   INDEX idEstado_idx (idEstado ASC),
@@ -117,7 +117,7 @@ DROP TABLE IF EXISTS Log;
 
 CREATE TABLE IF NOT EXISTS Log(
   idLog INT NOT NULL AUTO_INCREMENT,
-  Fecha DATETIME NOT NULL DEFAULT GETDATE(),
+  Fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   Descripcion VARCHAR(145) NOT NULL,
   idUsuario INT NOT NULL COMMENT 'segun el idTipoUsuario se definiría como subastador o postor' NOT NULL,
   idSubasta INT,
