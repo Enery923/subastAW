@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS TiposSubasta (
 DROP TABLE IF EXISTS Subasta ;
 
 CREATE TABLE IF NOT EXISTS Subasta (
-  idSubasta INT NOT NULL,
+  idSubasta INT NOT NULL AUTO_INCREMENT,
   fecha_inicio DATETIME NOT NULL,
   fecha_fin DATETIME NOT NULL,
   fecha_roundRobin DATETIME NULL,
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS Usuario_SUbasta (
 DROP TABLE IF EXISTS Productos;
 
 CREATE TABLE IF NOT EXISTS Productos (
-  idProductos INT NOT NULL,
+  idProductos INT NOT NULL AUTO_INCREMENT,
   precio_inicio DOUBLE NOT NULL,
   concepto VARCHAR(20) NOT NULL,
   descripcion VARCHAR(100) NULL DEFAULT 'Sin Información concreta.',
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS Productos (
 DROP TABLE IF EXISTS Log;
 
 CREATE TABLE IF NOT EXISTS Log(
-  idLog INT NOT NULL,
+  idLog INT NOT NULL AUTO_INCREMENT,
   Fecha DATETIME NOT NULL,
   Descripcion VARCHAR(145) NOT NULL,
   idUsuario INT NOT NULL COMMENT 'segun el idTipoUsuario se definiría como subastador o postor' NOT NULL,
