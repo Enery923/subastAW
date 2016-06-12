@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS TiposUsuarios;
 
 CREATE TABLE IF NOT EXISTS TiposUsuarios (
   idTipoUsuarios INT NOT NULL,
-  codigoTipoUsuarios INT NOT NULL,
+  nombreTipoUsuarios VARCHAR(10) NOT NULL,
   descripcionTipoUsuarios VARCHAR(45) NOT NULL,
   PRIMARY KEY (idTipoUsuarios),
   UNIQUE INDEX codigoUsuarios_UNIQUE (codigoTipoUsuarios),
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS Productos (
   precio_inicio DOUBLE NOT NULL,
   concepto VARCHAR(20) NOT NULL,
   descripcion VARCHAR(100) NULL DEFAULT 'Sin Información concreta.',
-  imagen BLOB NULL,
+  imagen VARCHAR(60) NULL,
   fecha DATETIME NULL,
   idEstado INT NULL,
   PRIMARY KEY (idProductos),
