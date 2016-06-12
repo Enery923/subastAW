@@ -76,7 +76,6 @@ CREATE TABLE IF NOT EXISTS Usuarios(
   PRIMARY KEY (idUsuarios),
   UNIQUE INDEX Nombre_UNIQUE (Nombre ASC),
   INDEX idTipoUsuarios_idx (idTipoUsuarios ASC),
-  CONSTRAINT idTipoUsuarios FOREIGN KEY (idTipoUsuarios) REFERENCES TiposUsuarios (idTipoUsuarios) ON DELETE NO ACTION ON UPDATE NO ACTION
   );
 
 -- -----------------------------------------------------
