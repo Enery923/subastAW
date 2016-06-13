@@ -162,8 +162,6 @@ DROP TABLE IF EXISTS Lotes ;
 CREATE TABLE IF NOT EXISTS Lotes(
   idProducto INT NOT NULL COMMENT 'Relacion entre producto y subasta',
   idSubasta INT NOT NULL,
-  UNIQUE INDEX idProducto_UNIQUE (idProducto ASC),
-  INDEX idSubasta_UNIQUE (idSubasta ASC),
   CONSTRAINT idProducto_Lotes  FOREIGN KEY (idProducto) REFERENCES Productos (idProductos),
   CONSTRAINT idSubasta_Lotes   FOREIGN KEY (idSubasta)  REFERENCES Subasta (idSubasta));
 
