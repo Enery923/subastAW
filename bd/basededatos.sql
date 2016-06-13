@@ -1,3 +1,5 @@
+use subastaDB;
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -9,7 +11,7 @@ DROP TABLE IF EXISTS TiposUsuarios;
 
 CREATE TABLE IF NOT EXISTS TiposUsuarios (
   idTipoUsuarios INT NOT NULL,
-  nombreTipoUsuarios VARCHAR(10) NOT NULL,
+  nombreTipoUsuarios VARCHAR(15) NOT NULL,
   descripcionTipoUsuarios VARCHAR(45) NOT NULL,
   PRIMARY KEY (idTipoUsuarios),
   UNIQUE INDEX codigoUsuarios_UNIQUE (nombreTipoUsuarios),
@@ -170,8 +172,24 @@ INSERT INTO Estados (idEstados, codigoEstado, descripcionEstado) VALUES (0, 0, '
  (1, 1, 'Producto en Subasta'), (2, 2, 'Producto vendido'), (3, 3, 'Subasta activa'), 
 (4, 4, 'Subasta cerrada'),(5,5,'Subasta desertada'),(6,6,'Segunda Ronda'),(7,7, 'Sin empezar');
 
+INSERT INTO TiposUsuarios (idTipoUsuarios, nombreTipoUsuarios, descripcionTipoUsuarios)VALUES
+(0,'postor','Participa de las subastas'),
+(1,'subastador','Genera las subastas'),
+(2, 'administrador','Da de alta y baja');
+
 INSERT INTO TiposSubasta (idtiposSubasta, codigoSubasta, DescripcionSubasta) VALUES 
 (0, 0, 'dinámica descubierta ascendente.'), (1, 1, 'dinámica cubierta ascendente'),
  (2, 2, 'dinámica descubierta descendente'), (3, 3, 'dinámica cubierta descendente'), 
 (4, 4, 'holandesa'), (5, 5, 'sobre cerrado ascendente'), (6, 6, 'sobre cerrado descendente'), 
 (7, 7, 'Round robin descendente'), (8, 8, 'Round robin ascendente');
+
+INSERT INTO Usuarios (Nombre,Password,idTipoUsuarios) VALUES 
+('admin','3d3d0d8bc049e2bff8c834b3efa44b54',2),
+('subastador','da897f496061e72d84224ce7081f800f',1),
+('postor','8ea9f795ab6b0050cf49f59c76ca2330',0);
+
+INSERT INTO Log (Descripcion,idUsuario) VALUES
+('admin ha sido dado de alta',1),
+('subastador ha sido dado de alta',2,),
+('postor ha sido dado de alta',3);
+
