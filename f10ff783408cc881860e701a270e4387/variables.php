@@ -1,7 +1,7 @@
 <?php
 	//DB pruebas 1
 	$host_db = "localhost";
-	$user_db = "root";
+	$user_db = "f10ff783408cc881";
 	$pass_db = "sekretDB";
 	$db_name = "subastaDB";
 	$tbl_name = "Usuarios";
