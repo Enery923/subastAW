@@ -34,7 +34,7 @@
 					</form>
 
 
-					<form action="admin_cipri.php" method="POST">
+					<form action="admin.php" method="POST">
 						<input type="submit" name="Submit" value="Panel de Admin">
 					</form>
 
