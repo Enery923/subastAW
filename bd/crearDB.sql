@@ -1,5 +1,5 @@
-drop database if exists 'subastaDB';
+drop database if exists '$IDGrupo';
 
-create database 'subastaDB';
+create database '$IDGrupo';
 
-grant all on subastaDB.* to  '<mysql>'@localhost identified by 'sekretDB';
+grant all on subastaDB.* to  'idgrupo16caract'@localhost identified by 'sekret';
