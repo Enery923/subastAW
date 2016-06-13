@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include('variables.php');
 
 	$conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
@@ -9,6 +8,7 @@
 	}
 
 	$username = $_POST['username'];
+	echo $username;
 
 	$buscar_user = "SELECT * FROM $tbl_name WHERE $row_tbl_name_user = '$username'";	 
 	$result_user = $conexion->query($buscar_user);	
@@ -19,13 +19,13 @@
 		echo "<a href='admin.php'>Panel de admin.</a>";
 
 	} else if ($count == 1) {
-		$query = "UPDATE $tbl_name SET $row_tbl_name_permisos='2' WHERE $row_tbl_name_user='$username'";
-
+		$query = "UPDATE $tbl_name SET $row_tbl_name_permisos='0' WHERE $row_tbl_name_user='$username'"
+;
 		if (!mysqli_query($conexion, $query)) {
 			die('Error: Problema con la base de datos' . mysqli_error());
 		}
 
-		echo "El usuario $username ahora es administrador."."\n";
+		echo "El usuario $username ha sido borrado."."\n";
 		echo "<a href='admin.php'>Panel de admin.</a>";
 
 	} else {

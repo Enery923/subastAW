@@ -26,11 +26,14 @@
 		echo "<a href='index.php'>Introduzca otro nombre.</a>";
 		// Registramos como vendedor
 	} else if ($tipo_registro == 'Si') {
-		$query = "INSERT INTO $tbl_name ($row_tbl_name_user, $row_tbl_name_pwd, $row_tbl_name_permisos) VALUES ('$_POST[username]', '$hash', '1')";	 
+		$query = "INSERT INTO $tbl_name ($row_tbl_name_user, $row_tbl_name_pwd, $row_tbl_name_permisos) VALUES ('$_POST[username]', '$hash', '1')";
 		if (!mysqli_query($conexion, $query)) {
 			echo "Error al crear el usuario (vendedor)." . "<br />";
 			die('Problema con la base de datos' . mysqli_error($conexion));
 		} else {
+			$queryLog = "INSERT INTO $tbl_log ($row_tbl_log_descripcion, $row_tbl_log_user) VALUES ('Usuario vendedor ".$_POST['username']." creado con exito.', (SELECT $row_tbl_name_id FROM $tbl_name WHERE $row_tbl_name_user = '$username'))";
+			mysqli_query($conexion, $queryLog);
+			
 			echo "<br />" . "<h2>" . "Usuario vendedor creado con éxito." . "</h2>";
 			echo "<h4>" . "Bienvenido a Subastas vendedor " . $_POST['username'] . "</h4>" . "\n\n";
 			echo "<h5>" . "¡Vuelve a la página principal y loguéate para participar! " . "<a href='index.php'>Login</a>" . "</h5>";
@@ -42,6 +45,9 @@
 			echo "Error al crear el usuario." . "<br />";
 			die('Problema con la base de datos.' . mysqli_error($conexion));
 		} else {
+			$queryLog = "INSERT INTO $tbl_log ($row_tbl_log_descripcion, $row_tbl_log_user) VALUES ('Usuario ".$_POST['username']." creado con exito.', (SELECT $row_tbl_name_id FROM $tbl_name WHERE $row_tbl_name_user = '$username'))";
+			mysqli_query($conexion, $queryLog);
+
 			echo "<br />" . "<h2>" . "Usuario normal creado con éxito." . "</h2>";
 			echo "<h4>" . "Bienvenido a Subastas postor " . $_POST['username'] . "</h4>" . "\n\n";
 			echo "<h5>" . "¡Vuelve a la página principal y loguéate para participar! " . "<a href='index.php'>Login</a>" . "</h5>";

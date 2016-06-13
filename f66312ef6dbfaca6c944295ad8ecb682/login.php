@@ -34,6 +34,9 @@
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 
+			$queryLog = "INSERT INTO $tbl_log ($row_tbl_log_descripcion, $row_tbl_log_user) VALUES ('Usuario ".$_POST['username']." se ha logueado.', (SELECT $row_tbl_name_id FROM $tbl_name WHERE $row_tbl_name_user = '$username'))";
+			mysqli_query($conexion, $queryLog);
+
 			echo "Bienvenido postor " . $_SESSION['username'];
 			echo "<br><br><a href=user.php>Página de usuario</a>";
 			echo "<br><br><a href=index.php>Página principal</a>";
@@ -44,9 +47,12 @@
 		} else if (password_verify($password, $row['Password']) && $row_perm['idTipoUsuarios'] == 1){
 			$_SESSION['loggedin'] = true;
 			$_SESSION['username'] = $username;
-			$_SESSION[perfil] = 1;
+			$_SESSION['perfil'] = 1;
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
+
+			$queryLog = "INSERT INTO $tbl_log ($row_tbl_log_descripcion, $row_tbl_log_user) VALUES ('Vendedor ".$_POST['username']." se ha logueado.', (SELECT $row_tbl_name_id FROM $tbl_name WHERE $row_tbl_name_user = '$username'))";
+			mysqli_query($conexion, $queryLog);
 
 			echo "Bienvenido vendedor " . $_SESSION['username'];
 			echo "<br><br><a href=postor.php>Página de postor</a>";
@@ -59,6 +65,9 @@
 			$_SESSION['perfil'] = 2;
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
+
+			$queryLog = "INSERT INTO $tbl_log ($row_tbl_log_descripcion, $row_tbl_log_user) VALUES ('Administrador ".$_POST['username']." se ha logueado.', (SELECT $row_tbl_name_id FROM $tbl_name WHERE $row_tbl_name_user = '$username'))";
+			mysqli_query($conexion, $queryLog);
 
 			echo "Bienvenido administrador " . $_SESSION['username'];
 			echo "<br><br><a href=admin.php>Panel del administrador</a>";
