@@ -190,6 +190,6 @@ INSERT INTO Usuarios (Nombre,Password,idTipoUsuarios) VALUES
 
 INSERT INTO Log (Descripcion,idUsuario) VALUES
 ('admin ha sido dado de alta',1),
-('subastador ha sido dado de alta',2,),
+('subastador ha sido dado de alta',2),
 ('postor ha sido dado de alta',3);
 
