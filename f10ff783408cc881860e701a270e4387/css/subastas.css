@@ -1,0 +1,49 @@
+#tablaLote, #tablaSubasta, #tablaPujas, #tablaSubastas {
+	border-collapse: collapse;
+}
+
+#tablaLote td, #tablaSubasta td, #tablaPujas td, 
+#tablaLote th, #tablaSubasta th, #tablaPujas th,
+#tablaSubastas td, #tablaSubastas th{
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	
+}
+
+#form {
+	padding-top: 1%;
+}
+#tablaSubastas {
+	float:left;
+}
+
+caption {
+	text-decoration: underline;
+	font-size: 200%;
+}
+
+#menu {
+	float: left;
+	padding-right: 2%;
+}
+
+#enlaces a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+#enlaces {
+	margin: 0;
+	padding: 0;
+	margin: auto;
+	list-style-type: none;
+}
+
+#enlaces li {
+	margin: 0;
+	padding: 0;
+}
+
+
