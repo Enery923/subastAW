@@ -18,7 +18,7 @@ include('variables.php');
         die("Error al conectar: ".mysqli_connect_error());
     }
  
-  $dir_subida = '../img/';
+  $dir_subida = 'img/';
   $fichero_subido = $dir_subida . basename($_FILES['uploadedfile']['name']);
 
   if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $fichero_subido)) {
@@ -68,7 +68,7 @@ include('variables.php');
 
   mysqli_close($conexion);
   ?>
-  <form action="subastadorPerfil.php" name="retorno" id="retorno" method="post">
+  <form action="vendedor.php" name="retorno" id="retorno" method="post">
     <input type="hidden" name="" id="">
   </form>
   </body>

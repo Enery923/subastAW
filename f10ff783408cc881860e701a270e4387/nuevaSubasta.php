@@ -26,7 +26,7 @@
       $row =  mysqli_fetch_assoc($resultado);
       $idUsuario=. $row['idUsuarios'] .;
 
-      $idUsuario = 2;
+      //$idUsuario = 2;
 
 // Se monta la consulta para grabar una nueva cita.
   if(in_array($_POST["tipoSubasta"], $arrayName = array('7','8'))){
@@ -89,7 +89,7 @@
 
   mysqli_close($conexion);
   ?>
-  <form action="subastadorPerfil.php" name="retorno" id="retorno" method="post">
+  <form action="vendedor.php" name="retorno" id="retorno" method="post">
     <input type="hidden" name="" id="">
   </form>
   </body>
