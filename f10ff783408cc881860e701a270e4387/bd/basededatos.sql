@@ -194,3 +194,7 @@ INSERT INTO Log (Descripcion,idUsuario) VALUES
 INSERT INTO Productos (precio_inicio, concepto, descripcion, imagen, idEstado) VALUES
 (5.00,'cuerda','Cordaje de doble trenzado.','img/cuerda.jpg',0),
 (700,'moto','ciclomotor nuevo.','img/moto.jpg',0);
+
+INSERT INTO Log(Descripcion,idUsuario,idProducto) VALUES
+('Se ha añadido el producto de id 1 por el subastador de id 2',2,1),
+('Se ha añadido el producto de id 2 por el subastador de id 2',2,2);
