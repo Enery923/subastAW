@@ -161,6 +161,17 @@ CREATE TABLE IF NOT EXISTS Lotes(
   idProducto INT NOT NULL COMMENT 'Relacion entre producto y subasta',
   idSubasta INT NOT NULL,
   UNIQUE INDEX idProducto_UNIQUE (idProducto ASC),
-  UNIQUE INDEX idSubasta_UNIQUE (idSubasta ASC),
+  INDEX idSubasta_UNIQUE (idSubasta ASC),
   CONSTRAINT idProducto_Lotes  FOREIGN KEY (idProducto) REFERENCES Productos (idProductos),
   CONSTRAINT idSubasta_Lotes   FOREIGN KEY (idSubasta)  REFERENCES Subasta (idSubasta));
+
+
+INSERT INTO Estados (idEstados, codigoEstado, descripcionEstado) VALUES (0, 0, 'Producto Disponible'),
+ (1, 1, 'Producto en Subasta'), (2, 2, 'Producto vendido'), (3, 3, 'Subasta activa'), 
+(4, 4, 'Subasta cerrada'),(5,5,'Subasta desertada'),(6,6,'Segunda Ronda'),(7,7, 'Sin empezar');
+
+INSERT INTO TiposSubasta (idtiposSubasta, codigoSubasta, DescripcionSubasta) VALUES 
+(0, 0, 'dinámica descubierta ascendente.'), (1, 1, 'dinámica cubierta ascendente'),
+ (2, 2, 'dinámica descubierta descendente'), (3, 3, 'dinámica cubierta descendente'), 
+(4, 4, 'holandesa'), (5, 5, 'sobre cerrado ascendente'), (6, 6, 'sobre cerrado descendente'), 
+(7, 7, 'Round robin descendente'), (8, 8, 'Round robin ascendente');
