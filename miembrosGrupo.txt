@@ -1,9 +1,0 @@
-Yago Cordero Carrera 714556512Q
-David Escudero Garcia 71476534D
-Cipriano Lera Suárez
-Sergio Rodríguez Díez 44435731F
-Irene Suárez González 71466948Z
-
-
-Se entregará un fichero denominado miembrosGrupo.txt en el que aparecerá cada alumno del grupo en una línea distinta con su nombre y apellidos completos y dni y ordenados alfabéticamente por nombre y apellidos. De ese fichero se calculará un hash con el comando md5sum de Debian (ejecutando $IDGRUPO=`md5sum miembrosGrupo.txt | cut -d' ' -f1`). El valor de la variable de entorno $IDGRUPO se almacenará en un fichero denominado idGrupo.hash que también se subirá. El directorio base de la práctica tendrá como nombre el valor de la variable $IDGRUPO y los dos ficheros descritos deberán estar en el directorio base.
-$IDGRUPO='md5sum miembrosGrupo.txt | cut -d' ' -f1'> idGrupo.hash
