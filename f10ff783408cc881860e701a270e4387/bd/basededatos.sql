@@ -191,3 +191,6 @@ INSERT INTO Log (Descripcion,idUsuario) VALUES
 ('subastador ha sido dado de alta',2),
 ('postor ha sido dado de alta',3);
 
+INSERT INTO Productos (precio_inicio, concepto, descripcion, imagen, idEstado) VALUES
+(5.00,'cuerda','Cordaje de doble trenzado.','img/cuerda.jpg',0),
+(700,'moto','ciclomotor nuevo.','img/moto.jpg',0);
