@@ -182,9 +182,9 @@ INSERT INTO TiposSubasta (idtiposSubasta, codigoSubasta, DescripcionSubasta) VAL
 (7, 7, 'Round robin descendente'), (8, 8, 'Round robin ascendente');
 
 INSERT INTO Usuarios (Nombre,Password,idTipoUsuarios) VALUES 
-('admin','$2y$10$7pcCxM3o6VfHza0q5lxlQe.5GOHMeu8M4YvE/QHqHngTddzQlqXH.',2),
-('subastador','$2y$10$0Tbur.Nxx2LoiYHk6IoSgOnxKxO3KjdLFnGrQkurA04SpeLQwNjrG',1),
-('postor','$2y$10$lUB1O9IEKVG7qDOoLK8DJOL187R8wBycjvdfzD32xElTkKoiXk5Re',0);
+('admin','$2y$10$U6s4pcu4yVvz1gKWJXjCQegXdoJy1CQwd3SIssCdmHw5g9sxHSpLS',2),
+('subastador','$2y$10$XTd5XSNrfA3WiHf2z51zYuT35qHXEc.e8LYpIWGTxBUKHrSVp8m5e',1),
+('postor','$2y$10$fC/HJZGX89vdPkbjhBMM0OeYjhs6gDAi5pfUsDtZKLiQ/dQk7lDFa',0);
 
 INSERT INTO Log (Descripcion,idUsuario) VALUES
 ('admin ha sido dado de alta',1),
